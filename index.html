@@ -260,9 +260,21 @@
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
-    margin: 6px 8px 6px 0;
+    margin: 4px 0;
     transition: opacity 0.15s;
     min-height: 44px;
+    text-align: center;
+  }
+  .btn-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .btn-row .btn {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
   }
   .btn:hover { opacity: 0.85; }
   .btn-fill { background: #0071e3; color: #fff; }
@@ -449,11 +461,11 @@
       <h3>개인용품</h3>
       <ul>
         <li>세면도구(칫솔, 치약, 샴푸, 바디클렌저 등), 드라이기, 면도기, 수건 6~7장, 욕실 슬리퍼</li>
-        <li>텀블러 (원내 일회용 컵은 준비되어 있습니다), 컵/세정용품(세제, 스폰지 등)</li>
+        <li>텀블러 (원내 일회용 컵은 준비되어 있습니다), 컵/세정용품(세제, 수세미 등)</li>
         <li>운동화 / 슬리퍼</li>
         <li><strong>싱글 사이즈 이불, 베개, 패드 지참 필수</strong></li>
         <li>휴지 한 달에 3개 학원 지급, 이 외 사용분에 한하여 준비 요망</li>
-        <li>개인의 일상에 도움이 될 수 있는 물품 (방석, 무릎담요, 미니선풍기, 쿠션 등)</li>
+        <li>책걸상 이용에 도움이 될 수 있는 물품 (방석, 무릎덮개, 허리받침, 쿠션 등)</li>
         <li>개인 신분증</li>
       </ul>
       <div class="warn" style="margin-top:12px;">
@@ -465,10 +477,10 @@
       <h3>개인의류</h3>
       <ul>
         <li>외투 1벌 (운동장 및 야외 활동 시 착의)</li>
-        <li>본실을 대비한 이불 기재가 가능한 편하게 입을 옷 (자체되지 않는 단정한 의류)</li>
+        <li>분실을 대비한 이름 기재가 가능한 편하게 입을 옷 (학습에 저해되지 않는 단정한 의류)</li>
         <li>단체복 속에 받쳐 입을 티 6~7벌</li>
         <li>양말 6~7켤레, 속옷 6~7벌</li>
-        <li>세탁망, 옷걸이</li>
+        <li>우산, 옷걸이</li>
       </ul>
       <div class="warn" style="margin-top:12px;">
         의류의 경우 <strong>짧은 반바지, 치마, 레깅스는 착용 불가</strong>합니다.
@@ -480,7 +492,7 @@
       <ul>
         <li>본인이 복용해오던 의약품류 및 보약은 냉장보관 가능합니다.</li>
         <li>학원에서는 소량의 비치약 구급약만을 제공하며, 오남용 억제를 위해 개인별 지급수량을 조절합니다.</li>
-        <li>처방이 필요한 약 등은 주기적으로 보충이 필요한 약은 개인 지참해 주시기 바랍니다.</li>
+        <li>처방이 필요한 약 혹은 주기적으로 복용이 필요한 약은 개인 지참해 주시기 바랍니다.</li>
       </ul>
     </div>
 
@@ -490,7 +502,7 @@
         <li><strong>개인용 태블릿 PC, 태블릿 PC 충전기 지참</strong></li>
         <li><strong>개인 이어폰 필수 지참</strong> (무선, 유선 무관)</li>
         <li>개인 태블릿 PC 이용 시 저장되어 있는 사진/미디어 파일 백업 요청드립니다.</li>
-        <li>개인 태블릿 PC는 입소 후 방화벽 적용을 위해 행정실 점검이 진행됩니다.</li>
+        <li>개인 태블릿PC는 입소 후 방화벽 적용을 위해 점검이 진행될 수 있습니다.</li>
         <li>개인 태블릿 PC 셀룰러 데이터가 되는 태블릿 PC는 유심칩을 제거해야 합니다.</li>
       </ul>
     </div>
@@ -500,10 +512,10 @@
       <div class="warn">
         <ul style="margin:0;">
           <li>본원은 금연학원으로 <strong>흡연 관련 소지 일절 금지</strong></li>
-          <li>MP3, PMP, 전자사전, 휴대폰, 위치추적기(애플워치), 기타 전자기기</li>
+          <li>MP3, PMP, 전자사전, 휴대폰, 워치(갤럭시/애플워치), 기타 전자기기</li>
           <li>전기장판 등의 개인 전열기구 금지</li>
-          <li>액세서리(귀걸이, 팔찌, 반지 등 귀금속)</li>
-          <li>칼, 만화 등 학습참고서 이외의 일반 물류 반입 금지</li>
+          <li>색조화장품, 귀걸이, 팔찌, 반지 등의 귀금속</li>
+          <li>잡지, 만화 등 학습 참고서 이외의 학습에 불필요한 서적</li>
         </ul>
       </div>
     </div>
@@ -512,10 +524,10 @@
 
     <div class="info">
       <strong>참고사항</strong><br>
-      추가로 필요한 물품은 학습전략실에서 온라인 택배를 통해 받을 수 있습니다.<br>
-      원내 ATM기기가 없는 관계로, 약간의 용돈은 현금(5만원 내외)으로 지참바랍니다.<br>
-      세탁은 1주 기준 4회까지 무료로 가능하며 추가 세탁이 필요한 경우 매점에서 구매 가능합니다.<br>
-      개인 짐은 <strong>1) 자습실에서 사용할 물품</strong>과 <strong>2) 숙소에서 사용할 물품</strong>으로 구분하여 준비해 주세요. (숙소에서는 학습, 취사 활동이 제한됩니다.)
+      추가로 필요한 물품은 학습 전략실에서 집으로 연락드려 택배를 통해 받을 수 있게 합니다.<br>
+      원내 ATM기가 없는 관계로, 사용할 약간의 용돈은 현금(5만원 내외)으로 지참바랍니다.<br>
+      빨래의 경우, 1개월 기준 4회까지 무료로 가능하며 추가 세탁이 필요한 경우 매점에서 구매 가능합니다.<br>
+      개인 짐은 <strong>분류1) 자습실에서 사용할 물품</strong>과 <strong>분류2) 숙소에서 사용할 물품</strong>으로 구분하여 준비해 주세요. (숙소에서는 학습, 취식 활동이 제한되는 점 참고해 주세요.)
     </div>
   </div>
 
@@ -546,12 +558,16 @@
         반드시 <strong>이메일 또는 전화번호</strong>로 가입해 주세요.<br>
         SNS / 소셜 로그인 시 학원 내 서비스 이용 불가
       </div>
-      <a href="https://www.etoos.com/customer/guide/ready01.asp" target="_blank" rel="noopener" class="btn btn-fill">이투스 통합회원 가입</a>
-      <a href="https://247.etoos.com/cont/branding20263" target="_blank" rel="noopener" class="btn btn-fill">my247 앱 안내</a>
+      <div class="btn-row">
+        <a href="https://www.etoos.com/customer/guide/ready01.asp" target="_blank" rel="noopener" class="btn btn-fill">이투스 통합회원 가입</a>
+        <a href="https://247.etoos.com/cont/branding20263" target="_blank" rel="noopener" class="btn btn-fill">my247 앱 안내</a>
+      </div>
       <div class="info" style="margin-top:12px;">
-        <strong>my247 앱 설치</strong><br>
-        <a href="https://apps.apple.com/kr/app/%EC%9D%B4%ED%88%AC%EC%8A%A4-my247-%EC%88%9C%EA%B3%B5-%EA%B7%B8-%EC%9D%B4%EC%83%81%EC%9D%98-%EC%84%B1%EA%B3%B5/id6758330641?platform=ipad" target="_blank" rel="noopener" class="btn btn-fill" style="margin-top:8px;">iOS 설치</a>
-        <a href="https://play.google.com/store/apps/details?id=com.etoos.my247&hl=kr" target="_blank" rel="noopener" class="btn btn-fill">Android 설치</a>
+        <strong>my247 앱 설치</strong>
+        <div class="btn-row" style="margin-top:8px;">
+          <a href="https://apps.apple.com/kr/app/%EC%9D%B4%ED%88%AC%EC%8A%A4-my247-%EC%88%9C%EA%B3%B5-%EA%B7%B8-%EC%9D%B4%EC%83%81%EC%9D%98-%EC%84%B1%EA%B3%B5/id6758330641?platform=ipad" target="_blank" rel="noopener" class="btn btn-fill">iOS 설치</a>
+          <a href="https://play.google.com/store/apps/details?id=com.etoos.my247&hl=kr" target="_blank" rel="noopener" class="btn btn-fill">Android 설치</a>
+        </div>
       </div>
     </div>
 
@@ -585,8 +601,10 @@
         입소 후 사용할 <strong>개인 태블릿 PC</strong>에 설치해 주세요.
       </div>
 
-      <a href="https://url.kr/cociit" target="_blank" rel="noopener" class="btn btn-fill">iOS 설치</a>
-      <a href="https://url.kr/8hrt1p" target="_blank" rel="noopener" class="btn btn-fill">Android 설치</a>
+      <div class="btn-row">
+        <a href="https://url.kr/cociit" target="_blank" rel="noopener" class="btn btn-fill">iOS 설치</a>
+        <a href="https://url.kr/8hrt1p" target="_blank" rel="noopener" class="btn btn-fill">Android 설치</a>
+      </div>
     </div>
 
     <div class="hr"></div>
@@ -604,12 +622,16 @@
         대표보호자님 번호는 자동 등록되어 있습니다.<br>
         보호자 등록이 추가로 필요하시면 행정실로 연락 부탁드립니다.
       </div>
-      <a href="https://www.etoos.com/customer/guide/ready01.asp" target="_blank" rel="noopener" class="btn btn-fill">이투스 통합회원 가입</a>
-      <a href="https://247.etoos.com/cont/branding20263" target="_blank" rel="noopener" class="btn btn-fill">my247 앱 안내</a>
+      <div class="btn-row">
+        <a href="https://www.etoos.com/customer/guide/ready01.asp" target="_blank" rel="noopener" class="btn btn-fill">이투스 통합회원 가입</a>
+        <a href="https://247.etoos.com/cont/branding20263" target="_blank" rel="noopener" class="btn btn-fill">my247 앱 안내</a>
+      </div>
       <div class="info" style="margin-top:12px;">
-        <strong>my247 앱 설치</strong><br>
-        <a href="https://apps.apple.com/kr/app/%EC%9D%B4%ED%88%AC%EC%8A%A4-my247-%EC%88%9C%EA%B3%B5-%EA%B7%B8-%EC%9D%B4%EC%83%81%EC%9D%98-%EC%84%B1%EA%B3%B5/id6758330641?platform=ipad" target="_blank" rel="noopener" class="btn btn-fill" style="margin-top:8px;">iOS 설치</a>
-        <a href="https://play.google.com/store/apps/details?id=com.etoos.my247&hl=kr" target="_blank" rel="noopener" class="btn btn-fill">Android 설치</a>
+        <strong>my247 앱 설치</strong>
+        <div class="btn-row" style="margin-top:8px;">
+          <a href="https://apps.apple.com/kr/app/%EC%9D%B4%ED%88%AC%EC%8A%A4-my247-%EC%88%9C%EA%B3%B5-%EA%B7%B8-%EC%9D%B4%EC%83%81%EC%9D%98-%EC%84%B1%EA%B3%B5/id6758330641?platform=ipad" target="_blank" rel="noopener" class="btn btn-fill">iOS 설치</a>
+          <a href="https://play.google.com/store/apps/details?id=com.etoos.my247&hl=kr" target="_blank" rel="noopener" class="btn btn-fill">Android 설치</a>
+        </div>
       </div>
     </div>
   </div>
