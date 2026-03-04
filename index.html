@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이투스247 이천기숙학원 안내</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    color: #1d1d1f;
+    background: #f5f5f7;
+    line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+  }
+
+  .page {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .hdr {
+    background: #1d1d1f;
+    padding: 40px 24px 36px;
+    text-align: center;
+  }
+  .hdr-sub {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 12px;
+  }
+  .hdr h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+  .hdr p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 8px;
+    font-weight: 400;
+  }
+
+  /* Tabs */
+  .tabs {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #fff;
+    display: flex;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .tab {
+    flex: 1;
+    padding: 14px 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: #86868b;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tab.on { color: #1d1d1f; border-bottom-color: #1d1d1f; font-weight: 600; }
+
+  /* Sections */
+  .sec { display: none; padding: 32px 20px 48px; }
+  .sec.on { display: block; }
+
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1d1d1f;
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
+  }
+
+  .lead {
+    font-size: 14px;
+    color: #6e6e73;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin: 28px 0 10px;
+  }
+
+  p { font-size: 14px; color: #1d1d1f; margin-bottom: 12px; line-height: 1.75; }
+
+  /* Steps list */
+  .steps { list-style: none; margin: 0 0 8px; }
+  .steps li {
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .steps li:last-child { border-bottom: none; }
+  .steps .n {
+    font-size: 13px;
+    font-weight: 600;
+    color: #86868b;
+    flex-shrink: 0;
+    width: 20px;
+  }
+  .steps .txt strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 2px;
+  }
+  .steps .txt span {
+    font-size: 14px;
+    color: #6e6e73;
+  }
+
+  /* Callout */
+  .callout {
+    background: #1d1d1f;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 28px 0 0;
+    text-align: center;
+  }
+  .callout strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .callout span {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Warning */
+  .warn {
+    background: #fff3f0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 13.5px;
+    color: #1d1d1f;
+    line-height: 1.7;
+  }
+  .warn strong { font-weight: 600; }
+  .warn-label {
+    display: inline-block;
+    background: #ff3b30;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  /* Info box */
+  .info {
+    background: #f5f5f7;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 13.5px;
+    color: #1d1d1f;
+    line-height: 1.7;
+  }
+
+  /* Card */
+  .card {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .card-hd {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: #1d1d1f;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d1d1f;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .tag-blue { background: #e8f0fe; color: #1a56db; }
+  .tag-pink { background: #fce8ef; color: #c4314b; }
+  .tag-gray { background: #f0f0f0; color: #86868b; }
+
+  .card p { font-size: 13.5px; color: #6e6e73; margin-bottom: 10px; line-height: 1.7; }
+
+  /* Flow */
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    margin: 10px 0 16px;
+  }
+  .flow span {
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    white-space: nowrap;
+  }
+  .flow-arr { background: none !important; color: #c7c7cc !important; padding: 0 2px !important; font-size: 10px !important; }
+
+  /* Button */
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 6px 8px 6px 0;
+    transition: opacity 0.15s;
+    min-height: 44px;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn-fill { background: #0071e3; color: #fff; }
+  .btn-out { background: #fff; color: #0071e3; border: 1px solid #0071e3; }
+
+  /* Divider */
+  .hr { height: 1px; background: #e5e5e5; margin: 20px 0; }
+
+  /* Tiers */
+  .tiers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .tier {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 20px 14px;
+    text-align: center;
+  }
+  .tier-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #86868b;
+    margin-bottom: 8px;
+  }
+  .tier-desc {
+    font-size: 13px;
+    color: #6e6e73;
+    margin-bottom: 10px;
+  }
+  .tier-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1d1d1f;
+  }
+  .tier-price small {
+    font-size: 12px;
+    font-weight: 400;
+    color: #86868b;
+  }
+  .tier-free .tier-price { color: #34c759; }
+
+  /* Detail list */
+  .dl { list-style: none; margin: 16px 0; }
+  .dl li {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #1d1d1f;
+    border-bottom: 1px solid #f0f0f0;
+    padding-left: 12px;
+    position: relative;
+  }
+  .dl li:last-child { border-bottom: none; }
+  .dl li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 18px;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #86868b;
+  }
+
+  /* Footer */
+  .ftr {
+    border-top: 1px solid #e5e5e5;
+    padding: 24px;
+    text-align: center;
+  }
+  .ftr a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d1d1f;
+    text-decoration: none;
+  }
+  .ftr a:hover { color: #0071e3; }
+  .ftr .name {
+    font-size: 12px;
+    color: #86868b;
+    margin-top: 6px;
+  }
+
+  @media (max-width: 420px) {
+    .hdr { padding: 32px 18px 28px; }
+    .hdr h1 { font-size: 20px; }
+    .sec { padding: 26px 16px 40px; }
+    .tab { font-size: 12.5px; }
+    .tiers { gap: 8px; }
+    .tier { padding: 16px 10px; }
+    .tier-price { font-size: 18px; }
+    .card { padding: 16px; }
+    .card-name { font-size: 14px; }
+    .flow span { font-size: 11px; padding: 4px 7px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hdr">
+    <div class="hdr-sub">ETOOS 247</div>
+    <h1>이투스247 이천기숙학원</h1>
+    <p>2026 대입 성공을 위한 필수 안내</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab on" data-i="0">국어 프로그램</button>
+    <button class="tab" data-i="1">입소전 필수 안내</button>
+    <button class="tab" data-i="2">클래스픽 · 원업</button>
+  </nav>
+
+  <!-- 국어 프로그램 -->
+  <div class="sec on" id="s0">
+    <h2>국어 집중 케어 프로그램</h2>
+    <p class="lead">정규반 개강을 맞아 입시의 첫 관문이자 멘탈 싸움의 핵심인 국어 실력 강화 프로그램을 전 재원생 의무 시행으로 도입합니다.</p>
+
+    <ol class="steps">
+      <li><span class="n">01</span><div class="txt"><strong>실전 훈련</strong><span>매주 토요일, 수능 국어 시간과 동일하게 한수 모의고사 진행</span></div></li>
+      <li><span class="n">02</span><div class="txt"><strong>아침 루틴</strong><span>월~금 0교시, 국어 주간지 '오일장' 풀이로 두뇌 예열</span></div></li>
+      <li><span class="n">03</span><div class="txt"><strong>밀착 관리</strong><span>담임 선생님의 매주 학습 점검 및 전략 담임의 1:1 피드백</span></div></li>
+      <li><span class="n">04</span><div class="txt"><strong>성적 분석</strong><span>모의고사 결과 기반의 수시/정시 심층 상담 병행</span></div></li>
+      <li><span class="n">05</span><div class="txt"><strong>학습 연속성</strong><span>외출 시에도 과제 의무 부여로 학습 흐름 유지</span></div></li>
+    </ol>
+
+    <div class="callout">
+      <strong>수능의 판도는 1교시 국어에서 결정됩니다.</strong>
+      <span>믿고 맡겨주신 만큼, 압도적인 결과로 보답하겠습니다.</span>
+    </div>
+  </div>
+
+  <!-- 입소전 필수 안내 -->
+  <div class="sec" id="s1">
+    <h2>입소전 필수 설치 안내</h2>
+    <p class="lead">이투스247 이천기숙 행정실입니다. 입소를 환영합니다.</p>
+
+    <div class="warn">
+      <div class="warn-label">필독</div><br>
+      원내 와이파이 방화벽으로 <strong>입소 후에는 회원가입이 어렵습니다.</strong><br>
+      반드시 입소 전에 아래 안내를 완료해 주세요.
+    </div>
+
+    <div class="info">
+      <strong>1, 2번</strong>은 학생 본인 진행 &nbsp;/&nbsp; <strong>3번</strong>은 부모님 확인
+    </div>
+
+    <!-- 1 -->
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-num">1</span>
+        <span class="card-name">이투스 통합회원 가입</span>
+        <span class="tag tag-blue">학생</span>
+      </div>
+      <p>재원 기간 동안 이투스 인강 구독권 활성화, My247 질문 예약, 부모님 응원편지 수령 등의 서비스를 이용하려면 통합회원 가입이 필요합니다.</p>
+      <div class="warn">
+        반드시 <strong>이메일 또는 전화번호</strong>로 가입해 주세요.<br>
+        SNS / 소셜 로그인 시 학원 내 서비스 이용 불가
+      </div>
+      <a href="https://www.etoos.com/customer/guide/ready01.asp" target="_blank" rel="noopener" class="btn btn-fill">이투스 통합회원 가입</a>
+    </div>
+
+    <div class="hr"></div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-num">2</span>
+        <span class="card-name">클래스팅 앱 설치 및 회원가입</span>
+        <span class="tag tag-blue">학생</span>
+      </div>
+      <p>학원 내 학생-선생님 소통을 위해 교육용 LMS 클래스팅을 사용합니다.</p>
+      <div class="warn">
+        회원가입 화면 가장 하단 <strong>"이메일로 가입"</strong>을 선택해 주세요.<br>
+        SNS 계정 가입 시 학원 내 사용 불가
+      </div>
+
+      <p style="font-size:14px; font-weight:600; margin:16px 0 6px;">가입 절차</p>
+      <div class="flow">
+        <span>앱 설치</span><span class="flow-arr">›</span>
+        <span>회원가입</span><span class="flow-arr">›</span>
+        <span>이메일로 가입</span><span class="flow-arr">›</span>
+        <span>인증번호</span><span class="flow-arr">›</span>
+        <span>이름/역할</span><span class="flow-arr">›</span>
+        <span>완료</span>
+      </div>
+
+      <div class="info">
+        클래스팅 초대는 <strong>입소 후</strong> 진행됩니다. 입소 전에는 앱 설치와 회원가입만 완료해 주세요.<br>
+        입소 후 사용할 <strong>개인 태블릿 PC</strong>에 설치해 주세요.
+      </div>
+
+      <a href="https://url.kr/cociit" target="_blank" rel="noopener" class="btn btn-fill">iOS 설치</a>
+      <a href="https://url.kr/8hrt1p" target="_blank" rel="noopener" class="btn btn-fill">Android 설치</a>
+    </div>
+
+    <div class="hr"></div>
+
+    <!-- 3 -->
+    <div class="card">
+      <div class="card-hd">
+        <span class="card-num">3</span>
+        <span class="card-name">이투스 통합회원 가입</span>
+        <span class="tag tag-pink">부모님</span>
+        <span class="tag tag-gray">선택</span>
+      </div>
+      <p>학생에게 응원편지를 보내고 싶으신 부모님께서는 본인 명의로 이투스 통합회원 가입을 별도로 진행해 주세요.</p>
+      <div class="info">
+        대표보호자님 번호는 자동 등록되어 있습니다.<br>
+        보호자 등록이 추가로 필요하시면 행정실로 연락 부탁드립니다.
+      </div>
+      <a href="https://www.etoos.com/customer/guide/ready01.asp" target="_blank" rel="noopener" class="btn btn-fill">이투스 통합회원 가입</a>
+    </div>
+  </div>
+
+  <!-- 클래스픽 · 원업 -->
+  <div class="sec" id="s2">
+    <h2>클래스픽 &amp; 원업 안내</h2>
+    <p class="lead">클래스픽(Class Pick)과 원업(1UP) 관련하여 안내드립니다.</p>
+
+    <h3>클래스픽 — Class Pick</h3>
+    <p style="color:#6e6e73;">현장수업을 보다 전략적이고 효율적으로 사용할 수 있는 이천기숙만의 시스템입니다. 성취도에 따라 필요한 만큼만 수업을 진행합니다.</p>
+
+    <div class="tiers">
+      <div class="tier tier-free">
+        <div class="tier-label">CLASS A</div>
+        <div class="tier-desc">0 ~ 3개 선택</div>
+        <div class="tier-price">무료</div>
+      </div>
+      <div class="tier">
+        <div class="tier-label">CLASS B</div>
+        <div class="tier-desc">4 ~ 6개 선택</div>
+        <div class="tier-price">10만원 <small>/월</small></div>
+      </div>
+      <div class="tier">
+        <div class="tier-label">CLASS C</div>
+        <div class="tier-desc">7 ~ 9개 선택</div>
+        <div class="tier-price">20만원 <small>/월</small></div>
+      </div>
+      <div class="tier">
+        <div class="tier-label">CLASS D</div>
+        <div class="tier-desc">무제한 수강</div>
+        <div class="tier-price">30만원 <small>/월</small></div>
+      </div>
+    </div>
+
+    <div class="info">
+      클래스별 추가금은 <strong>한 달 기준 금액</strong>이며, 실제 청구 금액은 시즌별 기간을 일할계산하여 청구됩니다.<br>
+      비용은 신청서 기준 안내 / 중도 퇴소 시 <strong>"일자" 기준</strong> 정산
+    </div>
+
+    <div class="hr"></div>
+
+    <h3>원업 — 1UP</h3>
+    <p style="color:#6e6e73;">1등급만 올리자! 시기와 성취도에 따라 국어 / 수학 / 영어 / 메디컬 필요한 과목만 집중적으로 — 과목별 1:1 개인 맞춤 멘토링</p>
+
+    <ul class="dl">
+      <li>과목별 <strong>10만원</strong></li>
+      <li>여러 개의 원업 신청 가능</li>
+      <li>4주 기준 1회 신청, 비용은 신청서 기준 안내</li>
+      <li>중도 퇴소 환불은 <strong>"회차" 기준</strong> 정산</li>
+    </ul>
+
+    <div class="info">
+      추가금 발생 대상자는 <strong>개별 청구 문자</strong>로 안내드릴 예정입니다.<br>
+      궁금하신 사항은 학원 행정실로 연락 주세요.
+    </div>
+  </div>
+
+  <footer class="ftr">
+    <a href="tel:031-567-0247">031-567-0247</a>
+    <div class="name">이투스247 이천기숙학원</div>
+  </footer>
+
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on')});
+    document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on')});
+    this.classList.add('on');
+    document.getElementById('s'+this.dataset.i).classList.add('on');
+  });
+});
+</script>
+</body>
+</html>
