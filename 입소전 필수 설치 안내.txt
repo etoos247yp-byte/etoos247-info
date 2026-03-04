@@ -10,9 +10,9 @@
 아래 ①, ②번은 학생 본인만 진행하시면 됩니다.
 부모님께서는 ③번을 확인해 주세요.
 
-① 이투스 통합회원 가입
+① 이투스 통합회원 가입 및 my247 앱 설치
 ② 클래스팅 앱 설치 및 회원가입
-③ [부모님] 응원편지 발송을 위한 이투스 통합회원 가입 (선택)
+③ [부모님] 응원편지 발송을 위한 이투스 통합회원 가입 (선택) 및 my247 앱 설치
 ---------------------
 [① 이투스 통합회원 가입 ― 학생]
 
@@ -24,6 +24,9 @@
 
 ▶ 이투스 통합회원가입 안내:
 https://www.etoos.com/customer/guide/ready01.asp
+
+▶my247 앱 안내:
+https://247.etoos.com/cont/branding20263
 ---------------------
 [② 클래스팅 앱 설치 및 회원가입 ― 학생]
 
@@ -54,4 +57,12 @@ https://url.kr/8hrt1p
 
 ▶ 이투스 통합회원가입 안내:
 https://www.etoos.com/customer/guide/ready01.asp
+
+▶my247 앱 안내:
+https://247.etoos.com/cont/branding20263
 ---------------------
+
+
+my247 앱 설치링크 
+iOS:https://apps.apple.com/kr/app/%EC%9D%B4%ED%88%AC%EC%8A%A4-my247-%EC%88%9C%EA%B3%B5-%EA%B7%B8-%EC%9D%B4%EC%83%81%EC%9D%98-%EC%84%B1%EA%B3%B5/id6758330641?platform=ipad
+안드로이드: https://play.google.com/store/apps/details?id=com.etoos.my247&hl=kr
