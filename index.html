@@ -76,6 +76,8 @@
     -webkit-tap-highlight-color: transparent;
   }
   .tab.on { color: #1d1d1f; border-bottom-color: #1d1d1f; font-weight: 600; }
+  .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tabs::-webkit-scrollbar { display: none; }
 
   /* Sections */
   .sec { display: none; padding: 32px 20px 48px; }
@@ -345,11 +347,34 @@
     margin-top: 6px;
   }
 
+  /* Prep items list */
+  .prep-group { margin: 20px 0; }
+  .prep-group h3 { margin: 0 0 8px; font-size: 15px; }
+  .prep-group ul {
+    list-style: none;
+    margin: 0 0 6px;
+  }
+  .prep-group ul li {
+    padding: 6px 0 6px 14px;
+    font-size: 13.5px;
+    color: #1d1d1f;
+    line-height: 1.7;
+    position: relative;
+  }
+  .prep-group ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 14px;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #86868b;
+  }
+
   @media (max-width: 420px) {
     .hdr { padding: 32px 18px 28px; }
     .hdr h1 { font-size: 20px; }
     .sec { padding: 26px 16px 40px; }
-    .tab { font-size: 12.5px; }
+    .tab { font-size: 11.5px; padding: 14px 6px; white-space: nowrap; }
     .tiers { gap: 8px; }
     .tier { padding: 16px 10px; }
     .tier-price { font-size: 18px; }
@@ -369,31 +394,112 @@
   </header>
 
   <nav class="tabs">
-    <button class="tab on" data-i="0">국어 프로그램</button>
-    <button class="tab" data-i="1">입소전 필수 안내</button>
+    <button class="tab on" data-i="0">입소 준비물</button>
+    <button class="tab" data-i="1">입소전 필수 설치</button>
     <button class="tab" data-i="2">클래스픽 · 원업</button>
+    <button class="tab" data-i="3">국어 프로그램</button>
   </nav>
 
-  <!-- 국어 프로그램 -->
+  <!-- 입소 준비물 -->
   <div class="sec on" id="s0">
-    <h2>국어 집중 케어 프로그램</h2>
-    <p class="lead">정규반 개강을 맞아 입시의 첫 관문이자 멘탈 싸움의 핵심인 국어 실력 강화 프로그램을 전 재원생 의무 시행으로 도입합니다.</p>
+    <h2>입소 준비물 안내</h2>
+    <p class="lead">입소 시 필요한 준비물 안내드리오니 확인 후 챙겨주시면 감사하겠습니다.</p>
 
-    <ol class="steps">
-      <li><span class="n">01</span><div class="txt"><strong>실전 훈련</strong><span>매주 토요일, 수능 국어 시간과 동일하게 한수 모의고사 진행</span></div></li>
-      <li><span class="n">02</span><div class="txt"><strong>아침 루틴</strong><span>월~금 0교시, 국어 주간지 '오일장' 풀이로 두뇌 예열</span></div></li>
-      <li><span class="n">03</span><div class="txt"><strong>밀착 관리</strong><span>담임 선생님의 매주 학습 점검 및 전략 담임의 1:1 피드백</span></div></li>
-      <li><span class="n">04</span><div class="txt"><strong>성적 분석</strong><span>모의고사 결과 기반의 수시/정시 심층 상담 병행</span></div></li>
-      <li><span class="n">05</span><div class="txt"><strong>학습 연속성</strong><span>외출 시에도 과제 의무 부여로 학습 흐름 유지</span></div></li>
-    </ol>
+    <div class="prep-group">
+      <h3>학습자료</h3>
+      <ul>
+        <li>정규수업용 교재는 학원자체교재를 사용하며, 입소 후 학생들에게 제공합니다.</li>
+        <li>인강 및 자기 주도 학습자료는 개별적 필요에 따라 지참하시기 바랍니다.</li>
+        <li>과목별, 영역별 개별적 학습자료 지참을 권장합니다.</li>
+        <li>담임선생님의 종합상담을 통해 인강 및 교재 추천을 진행할 예정이므로, 새로 구입하기보다는 기존에 학습하던 자료 지참을 추천합니다.</li>
+        <li>필기도구, 컴퓨터용 싸인펜, 연습장 등</li>
+      </ul>
+    </div>
 
-    <div class="callout">
-      <strong>수능의 판도는 1교시 국어에서 결정됩니다.</strong>
-      <span>믿고 맡겨주신 만큼, 압도적인 결과로 보답하겠습니다.</span>
+    <div class="hr"></div>
+
+    <div class="prep-group">
+      <h3>개인용품</h3>
+      <ul>
+        <li>세면도구(칫솔, 치약, 샴푸, 바디클렌저 등), 드라이기, 면도기, 수건 6~7장, 욕실 슬리퍼</li>
+        <li>텀블러 (원내 일회용 컵은 준비되어 있습니다), 컵/세정용품(세제, 스폰지 등)</li>
+        <li>운동화 / 슬리퍼</li>
+        <li><strong>슈퍼싱글 사이즈 이불, 베개, 패드 지참 필수</strong></li>
+        <li>휴지 한 달에 3개 학원 지급, 이 외 사용분에 한하여 준비 요망</li>
+        <li>개인의 일상에 도움이 될 수 있는 물품 (방석, 무릎담요, 미니선풍기, 쿠션 등)</li>
+        <li>개인 신발장</li>
+      </ul>
+      <div class="warn" style="margin-top:12px;">
+        <strong>필수사항:</strong> 호흡기 질환 발생 대비 마스크 지참 필요 (KF94 권장, 덴탈마스크 사용 가능)
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="prep-group">
+      <h3>개인의류</h3>
+      <ul>
+        <li>외투 1벌 (운동장 및 야외 활동 시 착의)</li>
+        <li>본실을 대비한 이불 기재가 가능한 편하게 입을 옷 (자체되지 않는 단정한 의류)</li>
+        <li>단체복 속에 받쳐 입을 티 6~7벌</li>
+        <li>양말 6~7켤레, 속옷 6~7벌</li>
+        <li>세탁망, 옷걸이</li>
+      </ul>
+      <div class="warn" style="margin-top:12px;">
+        의류의 경우 <strong>짧은 반바지, 치마, 레깅스는 착용 불가</strong>합니다.
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="prep-group">
+      <h3>개인 상비약</h3>
+      <ul>
+        <li>본인이 복용해오던 의약품류 및 보약은 냉장보관 가능합니다.</li>
+        <li>학원에서는 소량의 비치약 구급약만을 제공하며, 오남용 억제를 위해 개인별 지급수량을 조절합니다.</li>
+        <li>처방이 필요한 약 등은 주기적으로 보충이 필요한 약은 개인 지참해 주시기 바랍니다.</li>
+      </ul>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="prep-group">
+      <h3>태블릿 PC</h3>
+      <ul>
+        <li><strong>개인용 태블릿 PC, 태블릿 PC 충전기 지참</strong></li>
+        <li>개인 태블릿 PC 이용 시 저장되어 있는 사진/미디어 파일 백업 요청드립니다.</li>
+        <li>개인 태블릿 PC는 입소 후 방화벽 적용을 위해 행정실 점검이 진행됩니다.</li>
+        <li>개인 태블릿 PC 셀룰러 데이터가 되는 태블릿 PC는 유심칩을 제거해야 합니다.</li>
+      </ul>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="prep-group">
+      <h3>반입금지 품목</h3>
+      <div class="warn">
+        <ul style="margin:0;">
+          <li>본원은 금연학원으로 <strong>흡연 관련 소지 일절 금지</strong></li>
+          <li>MP3, PMP, 전자사전, 휴대폰, 위치추적기(애플워치), 기타 전자기기</li>
+          <li>전기장판 등의 개인 전열기구 금지</li>
+          <li>액세서리(귀걸이, 팔찌, 반지 등 귀금속)</li>
+          <li>칼, 만화 등 학습참고서 이외의 일반 물류 반입 금지</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="info">
+      <strong>참고사항</strong><br>
+      추가로 필요한 물품은 학습전략실에서 온라인 택배를 통해 받을 수 있습니다.<br>
+      원내 ATM기기가 없는 관계로, 약간의 용돈은 현금(5만원 내외)으로 지참바랍니다.<br>
+      세탁은 1주 기준 4회까지 무료로 가능하며 추가 세탁이 필요한 경우 매점에서 구매 가능합니다.<br>
+      개인 짐은 <strong>1) 자습실에서 사용할 물품</strong>과 <strong>2) 숙소에서 사용할 물품</strong>으로 구분하여 준비해 주세요. (숙소에서는 학습, 취사 활동이 제한됩니다.)
     </div>
   </div>
 
-  <!-- 입소전 필수 안내 -->
+  <!-- 입소전 필수 설치 -->
   <div class="sec" id="s1">
     <h2>입소전 필수 설치 안내</h2>
     <p class="lead">이투스247 이천기숙 행정실입니다. 입소를 환영합니다.</p>
@@ -527,6 +633,25 @@
     <div class="info">
       추가금 발생 대상자는 <strong>개별 청구 문자</strong>로 안내드릴 예정입니다.<br>
       궁금하신 사항은 학원 행정실로 연락 주세요.
+    </div>
+  </div>
+
+  <!-- 국어 프로그램 -->
+  <div class="sec" id="s3">
+    <h2>국어 집중 케어 프로그램</h2>
+    <p class="lead">정규반 개강을 맞아 입시의 첫 관문이자 멘탈 싸움의 핵심인 국어 실력 강화 프로그램을 전 재원생 의무 시행으로 도입합니다.</p>
+
+    <ol class="steps">
+      <li><span class="n">01</span><div class="txt"><strong>실전 훈련</strong><span>매주 토요일, 수능 국어 시간과 동일하게 한수 모의고사 진행</span></div></li>
+      <li><span class="n">02</span><div class="txt"><strong>아침 루틴</strong><span>월~금 0교시, 국어 주간지 '오일장' 풀이로 두뇌 예열</span></div></li>
+      <li><span class="n">03</span><div class="txt"><strong>밀착 관리</strong><span>담임 선생님의 매주 학습 점검 및 전략 담임의 1:1 피드백</span></div></li>
+      <li><span class="n">04</span><div class="txt"><strong>성적 분석</strong><span>모의고사 결과 기반의 수시/정시 심층 상담 병행</span></div></li>
+      <li><span class="n">05</span><div class="txt"><strong>학습 연속성</strong><span>외출 시에도 과제 의무 부여로 학습 흐름 유지</span></div></li>
+    </ol>
+
+    <div class="callout">
+      <strong>수능의 판도는 1교시 국어에서 결정됩니다.</strong>
+      <span>믿고 맡겨주신 만큼, 압도적인 결과로 보답하겠습니다.</span>
     </div>
   </div>
 
