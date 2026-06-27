@@ -423,6 +423,51 @@
     .card-name { font-size: 14px; }
     .flow span { font-size: 11px; padding: 4px 7px; }
   }
+
+  /* Sub-tabs for Section 4 (시대인재) */
+  .sub-tabs {
+    display: flex;
+    background: #f5f5f7;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 20px;
+    gap: 4px;
+  }
+  .sub-tab {
+    flex: 1;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6e6e73;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sub-tab.on {
+    background: #fff;
+    color: #1d1d1f;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .sub-sec {
+    display: none;
+  }
+  .sub-sec.on {
+    display: block;
+  }
+  .flyer-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: block;
+    margin-top: 10px;
+  }
 </style>
 </head>
 <body>
@@ -439,6 +484,7 @@
     <button class="tab" data-i="1">입소전 필수 설치</button>
     <button class="tab" data-i="2">클래스픽 · 원업</button>
     <button class="tab" data-i="3">한수&amp;오일장</button>
+    <button class="tab" data-i="4">시대인재</button>
   </nav>
 
   <!-- 입소 준비물 -->
@@ -710,6 +756,36 @@
     </div>
   </div>
 
+  <!-- 시대인재 콘텐츠 -->
+  <div class="sec" id="s4">
+    <h2>시대인재 콘텐츠 도입 안내</h2>
+    <p class="lead">이천기숙학원에 도입되는 시대인재 콘텐츠와 서바이벌 커리큘럼 안내입니다.</p>
+
+    <div class="sub-tabs">
+      <button class="sub-tab on" data-sub="0">도입 안내</button>
+      <button class="sub-tab" data-sub="1">서바이벌 커리큘럼</button>
+      <button class="sub-tab" data-sub="2">신청 양식 예시</button>
+    </div>
+
+    <!-- 도입 안내 -->
+    <div class="sub-sec on" id="sub0">
+      <img src="announcement.png" alt="도입 안내" class="flyer-img">
+      <div class="btn-row" style="margin-top: 20px;">
+        <a href="announcement.pdf" target="_blank" rel="noopener" class="btn btn-fill" style="width: 100%;">PDF 파일로 크게 보기 / 다운로드</a>
+      </div>
+    </div>
+
+    <!-- 서바이벌 커리큘럼 -->
+    <div class="sub-sec" id="sub1">
+      <img src="page2.png" alt="시대인재 서바이벌 커리큘럼" class="flyer-img">
+    </div>
+
+    <!-- 신청 양식 예시 -->
+    <div class="sub-sec" id="sub2">
+      <img src="page3.png" alt="학생 신청 양식 예시" class="flyer-img">
+    </div>
+  </div>
+
   <footer class="ftr">
     <a href="tel:031-567-0247">031-567-0247</a>
     <div class="name">이투스247 이천기숙학원</div>
@@ -723,6 +799,15 @@ document.querySelectorAll('.tab').forEach(function(t){
     document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on')});
     this.classList.add('on');
     document.getElementById('s'+this.dataset.i).classList.add('on');
+  });
+});
+
+document.querySelectorAll('.sub-tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.sub-tab').forEach(function(b){b.classList.remove('on')});
+    document.querySelectorAll('.sub-sec').forEach(function(s){s.classList.remove('on')});
+    this.classList.add('on');
+    document.getElementById('sub'+this.dataset.sub).classList.add('on');
   });
 });
 </script>
