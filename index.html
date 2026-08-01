@@ -528,6 +528,70 @@
     white-space: nowrap;
   }
 
+  /* Note block (참고사항) */
+  .note {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 16px 16px 4px;
+    margin: 20px 0 0;
+  }
+  .note-hd {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #86868b;
+  }
+  .note-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .note-item:last-child { border-bottom: none; }
+  .note-item dt {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 3px;
+  }
+  .note-item dd {
+    font-size: 13.5px;
+    color: #6e6e73;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .note-item dd b { color: #1d1d1f; font-weight: 600; }
+  .note-sub {
+    margin-top: 8px !important;
+    font-size: 12.5px !important;
+    color: #86868b !important;
+  }
+
+  /* Split boxes */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .split-box {
+    background: #f5f5f7;
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .split-n {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #0071e3;
+    margin-bottom: 3px;
+  }
+  .split-t {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d1d1f;
+    line-height: 1.5;
+  }
+
   /* Extension number rows */
   .ext {
     display: flex;
@@ -652,12 +716,37 @@
 
     <div class="hr"></div>
 
-    <div class="info">
-      <strong>참고사항</strong><br>
-      추가로 필요한 물품은 학습 전략실에서 집으로 연락드려 택배를 통해 받을 수 있게 합니다.<br>
-      원내 ATM기가 없는 관계로, 사용할 약간의 용돈은 현금(5만원 내외)으로 지참바랍니다.<br>
-      빨래의 경우, 1개월 기준 4회까지 무료로 가능하며 추가 세탁이 필요한 경우 매점에서 구매 가능합니다.<br>
-      개인 짐은 <strong>분류1) 자습실에서 사용할 물품</strong>과 <strong>분류2) 숙소에서 사용할 물품</strong>으로 구분하여 준비해 주세요. (숙소에서는 학습, 취식 활동이 제한되는 점 참고해 주세요.)
+    <div class="note">
+      <div class="note-hd">참고사항</div>
+      <dl>
+        <div class="note-item">
+          <dt>추가 물품</dt>
+          <dd>학습 전략실에서 집으로 연락드려 <b>택배</b>를 통해 받을 수 있게 합니다.</dd>
+        </div>
+        <div class="note-item">
+          <dt>용돈</dt>
+          <dd>원내 ATM기가 없는 관계로, 사용할 약간의 용돈은 <b>현금 5만원 내외</b>로 지참 바랍니다.</dd>
+        </div>
+        <div class="note-item">
+          <dt>세탁</dt>
+          <dd>1개월 기준 <b>4회까지 무료</b>이며, 추가 세탁이 필요한 경우 매점에서 구매 가능합니다.</dd>
+        </div>
+        <div class="note-item">
+          <dt>짐 분류</dt>
+          <dd>개인 짐은 아래 두 가지로 구분하여 준비해 주세요.</dd>
+          <div class="split">
+            <div class="split-box">
+              <span class="split-n">분류 1</span>
+              <span class="split-t">자습실에서<br>사용할 물품</span>
+            </div>
+            <div class="split-box">
+              <span class="split-n">분류 2</span>
+              <span class="split-t">숙소에서<br>사용할 물품</span>
+            </div>
+          </div>
+          <dd class="note-sub">숙소에서는 학습·취식 활동이 제한되는 점 참고해 주세요.</dd>
+        </div>
+      </dl>
     </div>
   </div>
 
