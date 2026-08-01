@@ -50,34 +50,185 @@
     font-weight: 400;
   }
 
-  /* Tabs */
-  .tabs {
+  /* Motion + ink tokens */
+  :root {
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --ink-3: #a1a1a6;
+    --line: #e8e8ed;
+    --accent: #0071e3;
+  }
+
+  /* View switching */
+  .page[data-view="content"] .hdr,
+  .page[data-view="content"] .index { display: none; }
+  .page[data-view="index"] .backbar { display: none; }
+
+  /* Index — the table of contents */
+  .index { padding: 34px 20px 44px; }
+  .index-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+  }
+  .idx-row {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    width: 100%;
+    padding: 20px 2px;
+    border: none;
+    border-top: 1px solid var(--line);
+    background: none;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.24s var(--ease-in), transform 0.24s var(--ease-in);
+  }
+  .idx-row:last-of-type { border-bottom: 1px solid var(--line); }
+  .idx-num {
+    flex-shrink: 0;
+    width: 20px;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+    transition: color 0.4s var(--ease-out);
+  }
+  .idx-txt { flex: 1; min-width: 0; }
+  .idx-title {
+    display: block;
+    font-size: 16.5px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .idx-desc {
+    display: block;
+    margin-top: 3px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .idx-arrow {
+    flex-shrink: 0;
+    align-self: center;
+    font-size: 15px;
+    color: #c7c7cc;
+    transition: transform 0.4s var(--ease-out), color 0.4s var(--ease-out);
+  }
+  .idx-row:hover .idx-num, .idx-row:focus-visible .idx-num { color: var(--accent); }
+  .idx-row:hover .idx-arrow, .idx-row:focus-visible .idx-arrow {
+    transform: translateX(3px);
+    color: var(--ink-2);
+  }
+  .idx-row:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    border-radius: 4px;
+  }
+  .idx-row:active { opacity: 0.5; }
+
+  /* Index exit / re-entry */
+  .index.leaving .idx-row {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition-delay: calc(var(--i) * 26ms);
+  }
+  @keyframes idxIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .index.entering .idx-row {
+    animation: idxIn 0.5s var(--ease-out) both;
+    animation-delay: calc(var(--i) * 30ms);
+  }
+
+  /* Back bar */
+  .backbar {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: #fff;
     display: flex;
-    border-bottom: 1px solid #e5e5e5;
+    align-items: center;
+    background: rgba(255,255,255,0.86);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    backdrop-filter: saturate(180%) blur(16px);
+    border-bottom: 1px solid var(--line);
   }
-  .tab {
-    flex: 1;
-    padding: 14px 0;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 500;
-    color: #86868b;
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 18px;
+    min-height: 48px;
     border: none;
     background: none;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: color 0.2s;
     font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
-  .tab.on { color: #1d1d1f; border-bottom-color: #1d1d1f; font-weight: 600; }
-  .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .tabs::-webkit-scrollbar { display: none; }
+  .back-chev { font-size: 17px; line-height: 1; margin-top: -2px; }
+  .back:active { opacity: 0.5; }
+  .back:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; border-radius: 6px; }
+
+  /* Section head — number, title, drawing rule */
+  .sec-head { margin-bottom: 22px; }
+  .sec-num {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .sec-head h2 { margin-bottom: 16px; }
+  .rule {
+    display: block;
+    height: 1px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  /* Content reveal */
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes ruleIn {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+  .sec.revealing > * {
+    animation: riseIn 0.56s var(--ease-out) both;
+    animation-delay: calc(120ms + var(--r) * 55ms);
+  }
+  .sec.revealing .rule {
+    animation: ruleIn 0.72s var(--ease-out) both;
+    animation-delay: 260ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .idx-row, .idx-num, .idx-arrow { transition: none !important; }
+    .index.leaving .idx-row,
+    .index.entering .idx-row,
+    .sec.revealing > *,
+    .sec.revealing .rule { animation: none !important; }
+    .rule { transform: scaleX(1); }
+  }
 
   /* Sections */
   .sec { display: none; padding: 32px 20px 48px; }
@@ -415,7 +566,11 @@
     .hdr { padding: 32px 18px 28px; }
     .hdr h1 { font-size: 20px; }
     .sec { padding: 26px 16px 40px; }
-    .tab { font-size: 11.5px; padding: 14px 6px; white-space: nowrap; }
+    .index { padding: 22px 16px 32px; }
+    .idx-row { gap: 14px; padding: 15px 2px; }
+    .idx-num { font-size: 22px; width: 18px; }
+    .idx-title { font-size: 15.5px; }
+    .idx-desc { font-size: 12.5px; }
     .tiers { gap: 8px; }
     .tier { padding: 16px 10px; }
     .tier-price { font-size: 18px; }
@@ -618,7 +773,7 @@
 </style>
 </head>
 <body>
-<div class="page">
+<div class="page" data-view="index">
 
   <header class="hdr">
     <div class="hdr-sub">ETOOS 247</div>
@@ -626,18 +781,77 @@
     <p>2026 대입 성공을 위한 필수 안내</p>
   </header>
 
-  <nav class="tabs">
-    <button class="tab on" data-i="0">입소 준비물</button>
-    <button class="tab" data-i="1">원내 생활 안내</button>
-    <button class="tab" data-i="2">입소전 필수 설치</button>
-    <button class="tab" data-i="3">클래스픽 · 원업</button>
-    <button class="tab" data-i="4">한수&amp;오일장</button>
-    <button class="tab" data-i="5">시대인재 콘텐츠</button>
+  <nav class="index">
+    <div class="index-eyebrow">안내 항목</div>
+
+    <button class="idx-row" data-i="0" style="--i:0">
+      <span class="idx-num">1</span>
+      <span class="idx-txt">
+        <span class="idx-title">입소 준비물</span>
+        <span class="idx-desc">학습자료, 개인용품, 의류, 상비약</span>
+      </span>
+      <span class="idx-arrow" aria-hidden="true">›</span>
+    </button>
+
+    <button class="idx-row" data-i="1" style="--i:1">
+      <span class="idx-num">2</span>
+      <span class="idx-txt">
+        <span class="idx-title">생활 안내</span>
+        <span class="idx-desc">전화, 택배, 응원의 편지, 외출·외박</span>
+      </span>
+      <span class="idx-arrow" aria-hidden="true">›</span>
+    </button>
+
+    <button class="idx-row" data-i="2" style="--i:2">
+      <span class="idx-num">3</span>
+      <span class="idx-txt">
+        <span class="idx-title">입소전 필수 설치</span>
+        <span class="idx-desc">입소 전 마쳐야 할 앱 설치와 가입</span>
+      </span>
+      <span class="idx-arrow" aria-hidden="true">›</span>
+    </button>
+
+    <button class="idx-row" data-i="3" style="--i:3">
+      <span class="idx-num">4</span>
+      <span class="idx-txt">
+        <span class="idx-title">클래스픽 · 원업</span>
+        <span class="idx-desc">추가 수업 선택과 1:1 멘토링</span>
+      </span>
+      <span class="idx-arrow" aria-hidden="true">›</span>
+    </button>
+
+    <button class="idx-row" data-i="4" style="--i:4">
+      <span class="idx-num">5</span>
+      <span class="idx-txt">
+        <span class="idx-title">한수 &amp; 오일장</span>
+        <span class="idx-desc">국어 집중 케어 프로그램</span>
+      </span>
+      <span class="idx-arrow" aria-hidden="true">›</span>
+    </button>
+
+    <button class="idx-row" data-i="5" style="--i:5">
+      <span class="idx-num">6</span>
+      <span class="idx-txt">
+        <span class="idx-title">시대인재 콘텐츠</span>
+        <span class="idx-desc">도입 안내와 서바이벌 커리큘럼</span>
+      </span>
+      <span class="idx-arrow" aria-hidden="true">›</span>
+    </button>
   </nav>
 
+  <div class="backbar">
+    <button class="back" type="button">
+      <span class="back-chev" aria-hidden="true">‹</span>안내 항목
+    </button>
+  </div>
+
   <!-- 입소 준비물 -->
-  <div class="sec on" id="s0">
-    <h2>입소 준비물 안내</h2>
+  <div class="sec" id="s0">
+    <div class="sec-head">
+      <span class="sec-num">1</span>
+      <h2>입소 준비물</h2>
+      <span class="rule"></span>
+    </div>
     <p class="lead">입소 시 필요한 준비물 안내드리오니 확인 후 챙겨주시면 감사하겠습니다.</p>
 
     <div class="prep-group">
@@ -752,7 +966,11 @@
 
   <!-- 원내 생활 안내 -->
   <div class="sec" id="s1">
-    <h2>원내 생활 안내</h2>
+    <div class="sec-head">
+      <span class="sec-num">2</span>
+      <h2>생활 안내</h2>
+      <span class="rule"></span>
+    </div>
     <p class="lead">입소 이후 원내 생활과 관련하여 자주 문의 주시는 내용을 안내드립니다.</p>
 
     <!-- 1 -->
@@ -885,7 +1103,11 @@
 
   <!-- 입소전 필수 설치 -->
   <div class="sec" id="s2">
-    <h2>입소전 필수 설치 안내</h2>
+    <div class="sec-head">
+      <span class="sec-num">3</span>
+      <h2>입소전 필수 설치</h2>
+      <span class="rule"></span>
+    </div>
     <p class="lead">이투스247 이천기숙 행정실입니다. 입소를 환영합니다.</p>
 
     <div class="warn">
@@ -991,7 +1213,11 @@
 
   <!-- 클래스픽 · 원업 -->
   <div class="sec" id="s3">
-    <h2>클래스픽 &amp; 원업 안내</h2>
+    <div class="sec-head">
+      <span class="sec-num">4</span>
+      <h2>클래스픽 &amp; 원업</h2>
+      <span class="rule"></span>
+    </div>
     <p class="lead">클래스픽(Class Pick)과 원업(1UP) 관련하여 안내드립니다.</p>
 
     <h3>클래스픽 — Class Pick</h3>
@@ -1045,7 +1271,11 @@
 
   <!-- 한수&오일장 -->
   <div class="sec" id="s4">
-    <h2>국어 집중 케어 프로그램</h2>
+    <div class="sec-head">
+      <span class="sec-num">5</span>
+      <h2>한수 &amp; 오일장</h2>
+      <span class="rule"></span>
+    </div>
     <p class="lead">정규반 개강을 맞아 입시의 첫 관문이자 멘탈 싸움의 핵심인 국어 실력 강화 프로그램을 전 재원생 의무 시행으로 도입합니다.</p>
 
     <ol class="steps">
@@ -1064,7 +1294,11 @@
 
   <!-- 시대인재 콘텐츠 -->
   <div class="sec" id="s5">
-    <h2>시대인재 콘텐츠 도입 안내</h2>
+    <div class="sec-head">
+      <span class="sec-num">6</span>
+      <h2>시대인재 콘텐츠</h2>
+      <span class="rule"></span>
+    </div>
     <p class="lead">이천기숙학원에 도입되는 시대인재 콘텐츠와 서바이벌 커리큘럼 안내입니다.</p>
 
     <div class="sub-tabs">
@@ -1099,13 +1333,66 @@
 
 </div>
 <script>
-document.querySelectorAll('.tab').forEach(function(t){
-  t.addEventListener('click',function(){
-    document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on')});
-    document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on')});
-    this.classList.add('on');
-    document.getElementById('s'+this.dataset.i).classList.add('on');
+var page  = document.querySelector('.page');
+var index = document.querySelector('.index');
+var rows  = document.querySelectorAll('.idx-row');
+var LEAVE = 240 + (rows.length - 1) * 26;   // last row finishes fading
+
+function clearSections(){
+  document.querySelectorAll('.sec').forEach(function(s){
+    s.classList.remove('on','revealing');
   });
+}
+
+function showSection(i){
+  clearSections();
+  var sec = document.getElementById('s' + i);
+  if(!sec) return;
+  sec.classList.add('on');
+  // stagger index for each top-level block
+  [].forEach.call(sec.children, function(c, n){ c.style.setProperty('--r', n); });
+  page.dataset.view = 'content';
+  window.scrollTo(0, 0);
+  void sec.offsetWidth;                     // restart the reveal animation
+  sec.classList.add('revealing');
+}
+
+function openSection(i){
+  index.classList.remove('entering');
+  index.classList.add('leaving');
+  setTimeout(function(){
+    showSection(i);
+    index.classList.remove('leaving');
+  }, LEAVE);
+}
+
+function showIndex(){
+  clearSections();
+  page.dataset.view = 'index';
+  window.scrollTo(0, 0);
+  index.classList.remove('leaving');
+  void index.offsetWidth;
+  index.classList.add('entering');
+  setTimeout(function(){ index.classList.remove('entering'); },
+             500 + (rows.length - 1) * 30);
+}
+
+rows.forEach(function(r){
+  r.addEventListener('click', function(){
+    var i = this.dataset.i;
+    openSection(i);
+    try { history.pushState({ sec: i }, ''); } catch(e) {}
+  });
+});
+
+document.querySelector('.back').addEventListener('click', function(){
+  if(history.state && history.state.sec != null){ history.back(); }
+  else { showIndex(); }
+});
+
+window.addEventListener('popstate', function(e){
+  if(e.state && e.state.sec != null){ showSection(e.state.sec); }
+  else { showIndex(); }
 });
 
 document.querySelectorAll('.sub-tab').forEach(function(t){
