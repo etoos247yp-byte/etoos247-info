@@ -470,6 +470,7 @@
     color: #86868b;
   }
   .tier-free .tier-price { color: #34c759; }
+  .tiers-3 { grid-template-columns: repeat(3, 1fr); }
 
   /* Detail list */
   .dl { list-style: none; margin: 16px 0; }
@@ -574,6 +575,10 @@
     .tiers { gap: 8px; }
     .tier { padding: 16px 10px; }
     .tier-price { font-size: 18px; }
+    .tiers-3 { gap: 6px; }
+    .tiers-3 .tier { padding: 16px 6px; }
+    .tiers-3 .tier-desc { font-size: 12px; }
+    .tiers-3 .tier-price { font-size: 17px; }
     .card { padding: 16px; }
     .card-name { font-size: 14px; }
     .flow span { font-size: 11px; padding: 4px 7px; }
@@ -1223,28 +1228,26 @@
     <h3>클래스픽 — Class Pick</h3>
     <p style="color:#6e6e73;">현장수업을 보다 전략적이고 효율적으로 사용할 수 있는 이천기숙만의 시스템입니다. 성취도에 따라 필요한 만큼만 수업을 진행합니다.</p>
 
-    <div class="tiers">
+    <div class="tiers tiers-3">
       <div class="tier tier-free">
         <div class="tier-label">CLASS A</div>
-        <div class="tier-desc">0 ~ 3개 선택</div>
+        <div class="tier-desc">0 ~ 2개 선택</div>
         <div class="tier-price">무료</div>
       </div>
       <div class="tier">
         <div class="tier-label">CLASS B</div>
-        <div class="tier-desc">4 ~ 6개 선택</div>
+        <div class="tier-desc">3 ~ 4개 선택</div>
         <div class="tier-price">10만원 <small>/월</small></div>
       </div>
       <div class="tier">
         <div class="tier-label">CLASS C</div>
-        <div class="tier-desc">7 ~ 9개 선택</div>
+        <div class="tier-desc">5개 이상 무제한</div>
         <div class="tier-price">20만원 <small>/월</small></div>
       </div>
-      <div class="tier">
-        <div class="tier-label">CLASS D</div>
-        <div class="tier-desc">무제한 수강</div>
-        <div class="tier-price">30만원 <small>/월</small></div>
-      </div>
     </div>
+
+    <p style="color:#6e6e73; font-size:13.5px; margin-bottom:6px;">모든 강좌는 <strong>수업 3T + 질의응답 1T</strong>로 진행되며, 강좌마다 <strong>질의응답 1T가 포함</strong>됩니다.</p>
+    <p style="color:#86868b; font-size:12.5px;">※ 1T는 약 50분 수업 시간을 의미합니다.</p>
 
     <div class="info">
       클래스별 추가금은 <strong>한 달 기준 금액</strong>이며, 실제 청구 금액은 시즌별 기간을 일할계산하여 청구됩니다.<br>
