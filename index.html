@@ -687,6 +687,13 @@
     color: #1d1d1f;
     white-space: nowrap;
   }
+  .tbl-term td {
+    font-weight: 600;
+    color: #1d1d1f;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .tbl-term td:last-child { font-weight: 400; color: #6e6e73; }
 
   /* Note block (참고사항) */
   .note {
@@ -1246,8 +1253,26 @@
       </div>
     </div>
 
-    <p style="color:#6e6e73; font-size:13.5px; margin-bottom:6px;">모든 강좌는 <strong>수업 3T + 질의응답 1T</strong>로 진행되며, 강좌마다 <strong>질의응답 1T가 포함</strong>됩니다.</p>
+    <p style="color:#6e6e73; font-size:13.5px; margin-bottom:6px;">한 강좌는 <strong>수업 3T + 질의응답 1T</strong>로 진행되며, 강좌마다 <strong>질의응답 1T가 포함</strong>됩니다.</p>
     <p style="color:#86868b; font-size:12.5px;">※ 1T는 약 50분 수업 시간을 의미합니다.</p>
+
+    <p style="font-size:14px; font-weight:600; color:#1d1d1f; margin:20px 0 0;">기간</p>
+    <div class="tbl-wrap">
+      <table class="tbl tbl-term">
+        <thead>
+          <tr><th>구분</th><th>시즌</th><th>기간</th><th>주차</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">2027 파이널반<br>(수능완성반)</td>
+            <td>시즌1</td><td>9/4(일) ~ 10/10(토)</td><td>5주</td>
+          </tr>
+          <tr>
+            <td>시즌2</td><td>10/11(일) ~ 11/17(화)</td><td>5.4주</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="info">
       클래스별 추가금은 <strong>한 달 기준 금액</strong>이며, 실제 청구 금액은 시즌별 기간을 일할계산하여 청구됩니다.<br>
